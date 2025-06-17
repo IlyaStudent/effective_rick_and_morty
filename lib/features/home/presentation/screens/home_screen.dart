@@ -56,20 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: BlocBuilder<CharactersListBloc, CharactersListState>(
         builder: (context, state) {
-          // if (state.isInitial) {
-          //   return SizedBox.shrink();
-          // }
-          // if (!state.hasData && state.isLoading) {
-          //   return CustomLoadingIndicatorWidget();
-          // }
-          // if (!state.hasData && state.hasError) {
-          //   return CustomErrorWidget(exception: state.exception!);
-          // }
-
-          // final data = state.data!;
-
-          // return HomeBodyWidget(data: data);
-
           return Stack(
             children: [
               RefreshIndicator(
