@@ -8,7 +8,7 @@ class CharacterDTO extends CharacterEntity {
   @override
   final LocationDTO location;
 
-  CharacterDTO({
+  const CharacterDTO({
     required super.id,
     required super.name,
     required super.status,
@@ -75,4 +75,43 @@ class CharacterDTO extends CharacterEntity {
     url: character.url,
     created: character.created,
   );
+
+  @override
+  int get hashCode {
+    return Object.hashAll([
+      id,
+      name,
+      status,
+      species,
+      type,
+      gender,
+      origin,
+      location,
+      image,
+      episode,
+      url,
+      created,
+      isFavorite,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is CharacterDTO &&
+            runtimeType == other.runtimeType &&
+            id == other.id &&
+            name == other.name &&
+            status == other.status &&
+            species == other.species &&
+            type == other.type &&
+            gender == other.gender &&
+            origin == other.origin &&
+            location == other.location &&
+            image == other.image &&
+            episode.every((element) => other.episode.contains(element)) &&
+            url == other.url &&
+            created == other.created &&
+            isFavorite == other.isFavorite);
+  }
 }

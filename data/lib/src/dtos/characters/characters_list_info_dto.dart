@@ -10,7 +10,7 @@ class CharactersListInfoDTO extends CharactersListInfoEntity {
   @JsonKey(name: 'prev')
   final String? prevPage;
 
-  CharactersListInfoDTO({
+  const CharactersListInfoDTO({
     required super.count,
     required super.pages,
     this.nextPage,

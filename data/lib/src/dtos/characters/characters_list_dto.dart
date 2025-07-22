@@ -9,7 +9,7 @@ class CharactersListDTO extends CharactersListEntity {
   @override
   final List<CharacterDTO> characters;
 
-  CharactersListDTO({required this.info, required this.characters})
+  const CharactersListDTO({required this.info, required this.characters})
     : super(info: info, characters: characters);
 
   factory CharactersListDTO.fromJson(Map<String, dynamic> json) =>
