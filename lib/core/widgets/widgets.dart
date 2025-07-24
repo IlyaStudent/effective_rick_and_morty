@@ -12,6 +12,7 @@ import 'package:effective_rick_and_morty/core/styles/app_colors.dart';
 import 'package:effective_rick_and_morty/core/styles/text_styles.dart';
 import 'package:effective_rick_and_morty/core/utils/api_response_state/api_response_state.dart';
 import 'package:effective_rick_and_morty/core/utils/state_controller/state_controller.dart';
+import 'package:effective_rick_and_morty/core/widgets/widgets_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

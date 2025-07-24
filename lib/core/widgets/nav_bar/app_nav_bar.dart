@@ -12,16 +12,19 @@ class AppNavBar extends StatelessWidget {
     onTap: onTap,
     items: [
       BottomNavigationBarItem(
+        key: WidgetsKeys.homeNavBarItem,
         label: context.localization.home,
         icon: Icon(Icons.home_rounded),
       ),
 
       BottomNavigationBarItem(
+        key: WidgetsKeys.favoriteNavBarItem,
         label: context.localization.favorites,
         icon: Icon(Icons.star_rounded),
       ),
 
       BottomNavigationBarItem(
+        key: WidgetsKeys.settingsNavBarItem,
         label: context.localization.settings,
         icon: Icon(Icons.settings_rounded),
       ),

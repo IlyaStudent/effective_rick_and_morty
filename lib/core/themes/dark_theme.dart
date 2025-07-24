@@ -15,7 +15,7 @@ final ThemeData darkTheme = ThemeData(
     foregroundColor: Color(0xFF00B0FF),
     iconTheme: IconThemeData(color: Color(0xFF00B0FF)),
   ),
-  cardTheme: CardTheme(
+  cardTheme: CardThemeData(
     color: const Color(0xFF1A1A2E),
     elevation: 8,
     shape: RoundedRectangleBorder(

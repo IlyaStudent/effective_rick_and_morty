@@ -15,7 +15,7 @@ final ThemeData lightTheme = ThemeData(
     foregroundColor: Colors.white,
     iconTheme: IconThemeData(color: Colors.white),
   ),
-  cardTheme: CardTheme(
+  cardTheme: CardThemeData(
     color: Colors.white,
     elevation: 4,
     shape: RoundedRectangleBorder(

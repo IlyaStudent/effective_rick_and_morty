@@ -102,3 +102,54 @@ Future<void> initDependencies() async {
       ),
     );
 }
+
+Future<void> initTestDependencies() async {
+  await dotenv.load(fileName: AppConfig.envFileName);
+
+  getIt
+    // --- Repositories --- //
+    ..registerLazySingleton<CharactersRepository>(
+      () => CharactersRepositoryFake(),
+    )
+    ..registerLazySingleton<ImagesRepository>(() => ImagesRepositoryFake())
+    // --- Use cases --- //
+    ..registerLazySingleton<GetAllCharactersUseCase>(
+      () => GetAllCharactersUseCase(repository: getIt()),
+    )
+    ..registerLazySingleton<GetImageDataUseCase>(
+      () => GetImageDataUseCase(repository: getIt()),
+    )
+    ..registerLazySingleton<ToggleCharacterFavoriteStatusUseCase>(
+      () => ToggleCharacterFavoriteStatusUseCase(repository: getIt()),
+    )
+    ..registerLazySingleton<GetFavoriteCharactersUseCase>(
+      () => GetFavoriteCharactersUseCase(repository: getIt()),
+    )
+    // --- Bloc & Cubit --- //
+    ..registerFactory<ImageCubit>(
+      () => ImageCubit(stateController: getIt(), useCase: getIt()),
+    )
+    ..registerFactory<CharactersListBloc>(
+      () => CharactersListBloc(stateController: getIt(), useCase: getIt()),
+    )
+    ..registerFactory<CharacterFavoriteStatusBloc>(
+      () => CharacterFavoriteStatusBloc(
+        stateController: getIt(),
+        useCase: getIt(),
+      ),
+    )
+    ..registerFactory<FavoriteCharactersListBloc>(
+      () => FavoriteCharactersListBloc(
+        stateController: getIt(),
+        useCase: getIt(),
+      ),
+    )
+    // --- Routing --- //
+    ..registerLazySingleton<AppRouter>(() => AppRouter())
+    // --- External --- //
+    ..registerLazySingleton<ParseErrorLogger>(() => ParseErrorLoggerImpl())
+    ..registerLazySingleton<ExceptionMapper>(() => ExceptionMapperImpl())
+    ..registerLazySingleton<StateController>(
+      () => StateControllerImpl(exceptionMapper: getIt<ExceptionMapper>()),
+    );
+}
