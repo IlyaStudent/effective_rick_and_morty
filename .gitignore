@@ -50,5 +50,4 @@ app.*.map.json
 **/*.freezed.dart
 
 # Firebase
-/lib/firebase_options.dart
-
+lib/firebase_options.dart
