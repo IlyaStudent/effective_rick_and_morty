@@ -5,6 +5,7 @@ import 'package:effective_rick_and_morty/core/constants/app_config.dart';
 import 'package:effective_rick_and_morty/core/exceptions/exception_mapper/exception_mapper.dart';
 import 'package:effective_rick_and_morty/core/exceptions/exception_mapper/exception_mapper_impl.dart';
 import 'package:effective_rick_and_morty/core/networks/parse_error_logger_impl.dart';
+import 'package:effective_rick_and_morty/core/networks/notifications/push_notification_service.dart';
 import 'package:effective_rick_and_morty/core/routes/app_router.dart';
 import 'package:effective_rick_and_morty/core/utils/state_controller/state_controller.dart';
 import 'package:effective_rick_and_morty/core/utils/state_controller/state_controller_impl.dart';
