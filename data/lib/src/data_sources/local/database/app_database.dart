@@ -18,12 +18,15 @@ class AppDatabase extends _$AppDatabase {
     return LazyDatabase(() async {
       final dbFolder = await getApplicationDocumentsDirectory();
 
-      final file = File(join(dbFolder.path, 'my_database.sqlite'));
+      final file = File(p.join(dbFolder.path, 'my_database.sqlite'));
 
-      if (!await file.parent.exists()) {
-        await file.parent.create(recursive: true);
+      if (Platform.isAndroid) {
+        await applyWorkaroundToOpenSqlite3OnOldAndroidVersions();
       }
-      return NativeDatabase(file);
+      final cachebase = (await getTemporaryDirectory()).path;
+      sqlite3.tempDirectory = cachebase;
+
+      return NativeDatabase.createInBackground(file);
     });
   }
 }
